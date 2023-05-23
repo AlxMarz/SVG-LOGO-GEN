@@ -1,6 +1,16 @@
 const shapes = require('./lib/shapes')
 const inquirer = require('inquirer');
 
+class Svg{
+    constructor(){
+        this.textElement = ''
+        this.ShapeElement = ''
+    }
+    render(){
+        return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg`
+    }
+}
+
 
 
 //QUESTIONS TO ASK USER
@@ -26,5 +36,4 @@ const questions = [
         message: "Chose your shape",
         choices: ("Circle","Square","Triangle")
     },
-
-]
+];
