@@ -1,15 +1,16 @@
-const shapes = require('./lib/shapes')
-const inquirer = require('inquirer');
+var inquirer = require('inquirer');
+const fs = require('fs')
 
-class Svg{
-    constructor(){
-        this.textElement = ''
-        this.ShapeElement = ''
-    }
-    render(){
-        return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg`
-    }
-}
+
+// class Svg {
+//     constructor(){
+//         this.textElement = ''
+//         this.ShapeElement = ''
+//     }
+//     render(){
+//         return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg>`
+//     }
+// }
 
 
 
@@ -34,6 +35,15 @@ const questions = [
         type:"list",
         name: "pixel-image",
         message: "Chose your shape",
-        choices: ("Circle","Square","Triangle")
+        choices: ["Circle","Square","Triangle"]
     },
 ];
+
+    function init(){
+        inquirer.prompt(questions).then(function (data){
+            var fileName = 'logo.svg';
+            fs.writeToFile(fileName, data);
+        })
+    }
+
+    init();
