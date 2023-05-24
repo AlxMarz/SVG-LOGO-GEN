@@ -1,5 +1,6 @@
 var inquirer = require('inquirer');
-const fs = require('fs')
+const fs = require('fs');
+const { generateKey } = require('crypto');
 
 
 // class Svg {
@@ -39,11 +40,24 @@ const questions = [
     },
 ];
 
+function writeToFile(fileName, data){
+    var content = generateLogo(data);
+    fs.writeFile(fileName, content, function(error){
+        if (error){
+            return console.log(error)
+        }
+        console.log('GENERATED logo.svg');
+    })
+
+}
+
+//FUNCTION TO PROMPT THE USER
     function init(){
         inquirer.prompt(questions).then(function (data){
             var fileName = 'logo.svg';
-            fs.writeToFile(fileName, data);
+            writeToFile(fileName, data);
         })
     }
 
+    //CALL TO INIT THE APP
     init();
