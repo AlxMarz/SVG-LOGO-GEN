@@ -1,17 +1,6 @@
 var inquirer = require('inquirer');
 const fs = require('fs');
-const { generateKey } = require('crypto');
-
-
-// class Svg {
-//     constructor(){
-//         this.textElement = ''
-//         this.ShapeElement = ''
-//     }
-//     render(){
-//         return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg>`
-//     }
-// }
+// const { generateKey } = require('crypto');
 
 
 
@@ -40,16 +29,17 @@ const questions = [
     },
 ];
 
+//TAKES IN CONTENTS OF FILENAME, DATA TO WRITE TO FILE
 function writeToFile(fileName, data){
     var content = generateLogo(data);
     fs.writeFile(fileName, content, function(error){
         if (error){
-            return console.log(error)
+            return console.log(error);
         }
         console.log('GENERATED logo.svg');
-    })
+    });
 
-}
+};
 
 //FUNCTION TO PROMPT THE USER
     function init(){
