@@ -1,6 +1,6 @@
 var inquirer = require('inquirer');
 const fs = require('fs');
-// const generateLogo = require('')
+const generateLogo = require('./lib/generateLogo')
 
 
 
@@ -15,12 +15,12 @@ const questions = [
     {
         type: "input",
         name: "text-color",
-        message: "text-color: please input color keyword"
+        message: "text_color: please input color keyword"
     },
     {
         type:"input",
         name: "shape",
-        message: "Shape-color: please input shape color keyword"
+        message: "Shape_color: please input shape color keyword"
     },
     {
         type:"list",
