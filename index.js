@@ -43,7 +43,37 @@ inquirer.Prompt(questions).then((answers)) => {
         case 'Triangle':
             const Triangle = new Triangle();
             Triangle.setColor(shapeColor);
+            svgElement = triangle.render()
+            break;
+        case 'Circle':
+            const Circle = new Circle()
+            Circle.setColor(shapeColor)
+            svgElement = circle.render()
+            break
+        case 'Square':
+            const Square = new Square()
+            Square.setColor(shapeColor)
+            svgElement = Square.render
+            break
     }
+
+    let x = 150, y=120
+    if (shape === 'Triangle'){
+        y = 135
+    } else if (shape === 'Square'){
+        y = 145
+    }
+
+    const finalSvg = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+        ${svgElement}
+        <text x="${x}" y="${y}" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
+      </svg>`
+
+      fs.writeFileSync('logo.svg', finalSvg)
+      console.log('GeneratedLogo.svg');
+
+
+
 }
 
 
