@@ -1,7 +1,7 @@
 var inquirer = require('inquirer');
 const fs = require('fs');
 // const generateLogo = require('./lib/generateLogo')
-const {Shape, Triangle, Circle, Square} =require('./lib/shapes')
+const {Shape, Triangle, Circle, Square} = require ('./lib/shapes')
 
 
 
@@ -12,7 +12,7 @@ const questions = [
         type: "input",
         name: "text",
         message: "Enter (3) characters please",
-        validate: (input) => input.length < 3,
+
     },
     {
         type: "input",
@@ -32,12 +32,12 @@ const questions = [
     },
 ];
 
-inquirer.Prompt(questions).then((answers)) => {
-    const {text, textColor, shape, shapeColor} = answers;
-    const shapeObj = new shape()
-    let svgElement = '';
+inquirer.prompt(questions).then((answers) => {
+    const {text, textColor, shape, shapeColor} = answers
+    const shapeObj = new Shape()
+    let svgElement = ''
 
-    shapeObj.setColor(shapeColor);
+    shapeObj.setColor
     
     switch(shape){
         case 'Triangle':
@@ -74,7 +74,7 @@ inquirer.Prompt(questions).then((answers)) => {
 
 
 
-}
+})
 
 
 
